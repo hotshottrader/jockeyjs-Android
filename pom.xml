@@ -12,7 +12,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<platform.version>4.4.2_r3</platform.version>
 		<android.plugin.version>3.7.0</android.plugin.version>
-		<android.sdk.path>/Users/cyrille.quemin/Documents/Android SDK/sdk</android.sdk.path>
 	</properties>
 
     <repositories>
@@ -65,6 +64,25 @@
 		</dependency>
 	</dependencies>
 	
+	<profiles>
+		<profile>
+		    <id>hudson</id>
+		    <activation>
+				<file>
+				    <missing>/Users/cyrille.quemin/Documents/Android SDK/sdk</missing>
+				</file>
+		    </activation>
+		</profile>
+		<profile>
+		    <id>local</id>
+		    <activation>
+            	<activeByDefault>true</activeByDefault>
+        	</activation>
+		    <properties>
+		    	<android.sdk.path>/Users/cyrille.quemin/Documents/Android SDK/sdk</android.sdk.path>
+		    </properties>
+		</profile>
+	</profiles>
 	
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
